@@ -10,12 +10,6 @@ class ScheduleController {
       userId: provider_id,
       query: { page, date },
     } = req;
-    const checkProvider = await User.findOne({
-      where: { provider: true, id: provider_id },
-    });
-    if (!checkProvider) {
-      return res.status(401).json({ error: 'User is not provider.' });
-    }
     const dateObj = parseISO(date);
     const appointments = await Appointment.findAll({
       where: {
