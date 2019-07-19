@@ -29,6 +29,12 @@ routes.get('/schedules', canProviderMiddleware, ScheduleController.index);
 routes.post('/appointments', AppointmentController.store);
 routes.get('/appointments', AppointmentController.index);
 
+routes.patch(
+  '/notifications/:id',
+  canProviderMiddleware,
+  NotificationController.update
+);
+
 routes.get(
   '/notifications',
   canProviderMiddleware,
